@@ -5,13 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.Formatter;
 import org.springframework.stereotype.Component;
 
-import java.text.ParseException;
+
 import java.util.Locale;
 import java.util.Optional;
 
 @Component
 public class ProvinceFormatter implements Formatter<Provinces> {
-
+    @Autowired
     private IProvinceService provinceService;
 
     @Autowired
@@ -20,7 +20,7 @@ public class ProvinceFormatter implements Formatter<Provinces> {
     }
 
     @Override
-    public Provinces parse(String text, Locale locale) throws ParseException {
+    public Provinces parse(String text, Locale locale) {
         Optional<Provinces> provinceOptional = provinceService.findById(Long.parseLong(text));
         return provinceOptional.orElse(null);
     }

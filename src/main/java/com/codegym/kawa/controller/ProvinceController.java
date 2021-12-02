@@ -90,7 +90,7 @@ public class ProvinceController {
         if (!provincesOptional.isPresent()){
             return new ModelAndView("/error.404");
         }
-        Iterable<Customer> customers =  customerService.findALlByProvince(provincesOptional.get());
+        Iterable<Customer> customers =  customerService.findAllByProvince(provincesOptional.get());
         ModelAndView modelAndView = new ModelAndView("/province/view");
         modelAndView.addObject("province",provincesOptional.get());
         modelAndView.addObject("customers",customers);

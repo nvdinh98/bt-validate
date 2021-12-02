@@ -14,6 +14,15 @@ public class Customer {
     @ManyToOne
     @JoinColumn(name = "province_id")
     private Provinces provinces;
+
+    public Provinces getProvinces() {
+        return provinces;
+    }
+
+    public void setProvinces(Provinces provinces) {
+        this.provinces = provinces;
+    }
+
     public Customer() {
     }
 
